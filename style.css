@@ -113,7 +113,7 @@ main section:last-of-type div {
 main section:last-of-type img {
     width: 100%;
     height: 200px;
-    object-fit: cover; /* Recorta a imagem para preencher o bloco sem distorcer */
+    object-fit: cover; 
     border-radius: 6px;
     margin-bottom: 15px;
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -124,4 +124,35 @@ main section:last-of-type p {
     color: #94a3b8;
     text-transform: uppercase;
     font-size: 0.9rem;
+}
+
+footer {
+    background-color: #01040f;
+    border-top: 2px solid #1e3a8a;
+    padding: 40px 20px;
+    display: flex;
+    justify-content: space-around; 
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+footer section {
+    margin-bottom: 0;
+    min-width: 250px;
+}
+
+footer h2, footer h3 {
+    font-size: 1.2rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 12px;
 }
