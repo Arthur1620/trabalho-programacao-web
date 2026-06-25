@@ -1,0 +1,100 @@
+.container {
+    position: relative;
+    display: flex;
+}
+
+.imagem {
+    width: 250px;
+    z-index: 2;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+
+.texto {
+    position: absolute;
+    top: 0;
+    left: 270px;
+    width: 300px;
+    padding: 15px;
+    background: rgba(0,0,0,0.7);
+    color: white;
+    border-radius: 12px;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: 9999;
+}
+.container:hover .texto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(10deg);
+    transform: scale(1.1);
+}
+
+body {
+    background-image: url("imagens_pietro/background.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+banner {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+}
+
+.fundo {
+    position: fixed;
+    background-image: url("imagens_pietro/background.webp");
+    background-size: cover;
+    background-position: center;
+    filter: blur(4px);
+    transform: scale(1.00); 
+    z-index: 1;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+header {
+    position: relative;
+    z-index: 2; 
+    color: white;
+    padding: 40px;
+}
+h1 {
+    font-size: 4.5rem;
+    text-align: center;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #d4af37,
+        #ffffff
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    letter-spacing: 3px;
+    font-weight: 900;
+
+    text-shadow: 0 4px 25px rgba(0,0,0,0.7);
+}
+
+.intro{
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    border-radius: 15px;
+
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+
+    color: white;
+
+}
