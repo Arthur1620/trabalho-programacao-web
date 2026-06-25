@@ -70,3 +70,25 @@ main section:first-of-type img {
     border-radius: 8px;
     border: 1px solid rgba(255, 255, 255, 0.05);
 }
+#informacoes {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+#informacoes .caixa {
+    flex: 1;
+    min-width: 260px;
+    background: linear-gradient(180deg, #0b132b 0%, #1c2541 100%);
+    padding: 30px 20px;
+    border-radius: 8px;
+    border: 1px solid #1e293b;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+#informacoes .caixa h2 {
+    font-size: 1.3rem;
+    color: #38bdf8;
+    margin-bottom: 15px;
+}
