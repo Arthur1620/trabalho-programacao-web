@@ -156,3 +156,24 @@ footer ul {
     align-items: center;
     gap: 12px;
 }
+
+footer ul li a {
+    display: inline-block;
+    width: 220px; 
+    padding: 10px 15px;
+    background-color: #0f172a;
+    color: #f1f5f9;
+    font-weight: 700;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    border: 1px solid #334155;
+    text-align: center;
+}
+
+footer ul li a:hover {
+    background-color: #38bdf8;
+    color: #020617;
+    border-color: #38bdf8;
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
+    transform: translateY(-2px); /* Dá um leve salto para cima */
+}
