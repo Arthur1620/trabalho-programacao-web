@@ -1,10 +1,14 @@
 .container {
     position: relative;
     display: flex;
+    align-items: center;
+    gap: 100px;
+    padding: 20px;
+    
 }
 
 .imagem {
-    width: 250px;
+    width: 350px;
     z-index: 2;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -70,7 +74,7 @@ h1 {
     background: linear-gradient(
         90deg,
         #ffffff,
-        #d4af37,
+        #eec240,
         #ffffff
     );
 
@@ -85,9 +89,9 @@ h1 {
 }
 
 .intro{
-    max-width: 900px;
+    font-size: 20px;
     margin: 50px auto;
-    padding: 30px;
+    padding: 25px;
 
     background: rgba(0, 0, 0, 0.9);
 
