@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     align-items: center;
-    gap: 100px;
+    gap: 30px;
     padding: 20px;
     
 }
@@ -15,12 +15,9 @@
 }
 
 .texto {
-    position: absolute;
-    top: 0;
-    left: 270px;
     width: 300px;
     padding: 15px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0,0,0,0.9);
     color: white;
     border-radius: 12px;
     opacity: 0;
@@ -30,17 +27,10 @@
 }
 .container:hover .texto {
     opacity: 1;
-    visibility: visible;
-    transform: translateX(10deg);
     transform: scale(1.1);
 }
 
-body {
-    background-image: url("imagens_pietro/background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 banner {
     position: relative;
     height: 400px;
@@ -53,7 +43,7 @@ banner {
     background-size: cover;
     background-position: center;
     filter: blur(4px);
-    transform: scale(1.00); 
+    transform: scale(1.05); 
     z-index: 1;
     background-repeat: no-repeat;
     background-attachment: fixed;
