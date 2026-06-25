@@ -53,7 +53,6 @@ section h2 {
     letter-spacing: 1px;
 }
 
-
 main section:first-of-type img {
     max-width: 100%;
     width: 300px;
@@ -61,4 +60,13 @@ main section:first-of-type img {
     border-radius: 12px;
     box-shadow: 0 0 30px rgba(56, 189, 248, 0.25);
     border: 2px solid rgba(255, 255, 255, 0.1);
+}
+#historia, #formato {
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    background: #061026; 
+    padding: 25px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
 }
