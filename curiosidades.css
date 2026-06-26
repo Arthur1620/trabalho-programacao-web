@@ -16,10 +16,10 @@
 .texto {
     position: absolute;
     left: 380px;
-    top: 135px;
+    top: 123px;
     width: 300px;
     padding: 15px;
-    background: rgba(11, 17, 51,1);
+    background: rgba(13, 23, 75, 0.78);
     color: white;
     border-radius: 12px;
     opacity: 0;
@@ -66,31 +66,32 @@ h1 {
     font-size: 4.5rem;
     text-align: center;
     background: linear-gradient(
-        90deg,
-        #ffffff,
-        #eec240,
-        #ffffff
+        #ffffff 10%,
+        #e5e7eb 45%,
+        #d1d5db 60%,
+        #ffffff 90%
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     letter-spacing: 3px;
     font-weight: 900;
-    text-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    text-shadow: 2px 8px 25px rgba(0, 0, 0, 0.9);
 }
+
 .timg{
     width: 100%;
     text-align: center;
     color: #ffffff;
     font-size: 2rem;
     margin-bottom: 10px;
-    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 1);
 }
 .intro{
     font-size: 20px;
     margin: 30px auto 0px auto;
     padding: 20px;
-    background: rgba(11, 17, 51, 0.7);
+    background: rgba(13, 23, 75, 0.9);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
