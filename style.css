@@ -96,14 +96,23 @@ main section:first-of-type img:hover {
     min-width: 280px;
     background: linear-gradient(180deg, #0f1e42 0%, #091229 100%);
     padding: 35px 25px;
-    border-radius: 8px;
-    border: 1px solid #1e293b;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+#informacoes .caixa:hover {
+    transform: translateY(-10px);
+    border-color: #38bdf8;
+    box-shadow: 0 20px 40px rgba(56, 189, 248, 0.15);
 }
 
 #informacoes .caixa h2 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     color: #38bdf8;
+    border-bottom: none;
+    padding-bottom: 0;
     margin-bottom: 15px;
 }
 
