@@ -1,10 +1,9 @@
-.container {
+.card {
     position: relative;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 100px;
-    padding: 20px;
-    
+    gap: 15px;
 }
 
 .imagem {
@@ -16,31 +15,25 @@
 
 .texto {
     position: absolute;
-    top: 0;
-    left: 270px;
+    left: 380px;
+    top: 123px;
     width: 300px;
     padding: 15px;
-    background: rgba(0,0,0,0.7);
+    background: rgba(13, 23, 75, 0.95);
     color: white;
     border-radius: 12px;
     opacity: 0;
-    transform: translateX(-20px);
+    transform: translateX(-20px) scale(1);
     transition: opacity 0.4s ease, transform 0.4s ease;
     z-index: 9999;
+    font-size: 17px;
 }
-.container:hover .texto {
+.card:hover .texto {
     opacity: 1;
-    visibility: visible;
-    transform: translateX(10deg);
-    transform: scale(1.1);
+    transform: translateX(0) scale(1.1);
 }
 
-body {
-    background-image: url("imagens_pietro/background.webp");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-}
+
 banner {
     position: relative;
     height: 400px;
@@ -48,13 +41,15 @@ banner {
 }
 
 .fundo {
+    top: 0;
+    left: 0;
     position: fixed;
-    background-image: url("imagens_pietro/background.webp");
+    background-image: url("imagens_pietro/back2.webp");
     background-size: cover;
     background-position: center;
     filter: blur(4px);
-    transform: scale(1.00); 
-    z-index: 1;
+    transform: scale(1.05); 
+    z-index: -1;
     background-repeat: no-repeat;
     background-attachment: fixed;
     width: 100vw;
@@ -70,35 +65,44 @@ header {
 h1 {
     font-size: 4.5rem;
     text-align: center;
-
     background: linear-gradient(
-        90deg,
-        #ffffff,
-        #eec240,
-        #ffffff
+        #ffffff 10%,
+        #e5e7eb 45%,
+        #d1d5db 60%,
+        #ffffff 90%
     );
-
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
-
     letter-spacing: 3px;
     font-weight: 900;
-
-    text-shadow: 0 4px 25px rgba(0,0,0,0.7);
+    text-shadow: 2px 8px 25px rgba(0, 0, 0, 0.9);
 }
 
+.timg{
+    width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-shadow: 0 6px 12px rgba(0, 0, 0, 1);
+}
 .intro{
     font-size: 20px;
-    margin: 50px auto;
-    padding: 25px;
-
-    background: rgba(0, 0, 0, 0.9);
-
+    margin: 30px auto 0px auto;
+    padding: 20px;
+    background: rgba(13, 23, 75, 0.9);
     border-radius: 15px;
-
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+}
 
-    color: white;
-
+main{
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    gap: 120px;          
+    padding: 30px;
 }
