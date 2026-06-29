@@ -37,7 +37,7 @@ body {
 /* HERO */
 
 .hero {
-  min-height: 380px;
+  min-height: 360px;
   padding: 70px 7%;
   display: flex;
   align-items: center;
@@ -102,54 +102,51 @@ body {
   background:
     radial-gradient(circle at top right, rgba(143, 211, 255, 0.15), transparent 30%),
     linear-gradient(180deg, #050816, #0b102f 50%, #050816);
+  overflow: visible;
 }
 
 .titulo-galeria {
   text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 }
 
 .titulo-galeria h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
 }
 
-/* LISTA DOS JOGADORES */
+/* GRADE DAS FOTOS */
 
 .lista-jogadores {
-  max-width: 1050px;
+  max-width: 1120px;
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 75px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 42px;
+  overflow: visible;
 }
 
-/* BLOCO DE CADA JOGADOR */
+/* BLOCO DO JOGADOR */
 
 .bloco-jogador {
   position: relative;
-  min-height: 300px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  aspect-ratio: 1 / 1;
+  border-radius: 24px;
+  cursor: pointer;
+  background-color: #111a58;
   transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
+  z-index: 1;
 }
 
-.bloco-jogador.inverso {
-  justify-content: flex-end;
-}
-
-/* FOTO QUADRADA */
+/* FOTO */
 
 .area-foto {
-  width: 280px;
-  height: 280px;
-  min-width: 280px;
+  width: 100%;
+  height: 100%;
   border-radius: 24px;
   overflow: hidden;
-  background-color: #111a58;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(143, 211, 255, 0.35);
-  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
+  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
 }
 
 .area-foto img {
@@ -160,143 +157,144 @@ body {
   transition: transform 0.45s ease, filter 0.35s ease;
 }
 
-/* CARD DE TEXTO ESCONDIDO */
+/* RETÂNGULO DE INFORMAÇÕES */
 
 .area-texto {
   position: absolute;
-  left: 315px;
-  width: 560px;
-  max-width: calc(100% - 330px);
-  padding: 26px;
-  border-radius: 24px;
-  background-color: rgba(17, 26, 88, 0.96);
-  border: 1px solid rgba(143, 211, 255, 0.45);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
+  top: 50%;
+  left: calc(100% + 18px);
+  width: 330px;
+  padding: 22px;
+  border-radius: 20px;
+
+  background-color: rgba(17, 26, 88, 0.97);
+  border: 1px solid rgba(143, 211, 255, 0.55);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
 
   opacity: 0;
   visibility: hidden;
-  transform: translateX(-25px);
-  transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
+  transform: translateY(-50%) translateX(-15px);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+
+  z-index: 50;
+  pointer-events: none;
 }
 
-/* QUANDO O BLOCO É INVERTIDO, O TEXTO APARECE DO OUTRO LADO */
+/* ALGUNS CARDS MOSTRAM O RETÂNGULO PARA A ESQUERDA */
 
-.bloco-jogador.inverso .area-texto {
+.bloco-jogador:nth-child(3n) .area-texto,
+.bloco-jogador:nth-child(4n) .area-texto {
   left: auto;
-  right: 315px;
-  transform: translateX(25px);
+  right: calc(100% + 18px);
+  transform: translateY(-50%) translateX(15px);
 }
 
-/* TEXTOS DO CARD */
-
-.posicao {
-  margin-bottom: 8px;
-  color: #8fd3ff;
-  font-size: 0.78rem;
-  font-weight: 800;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-}
-
-.area-texto h3 {
-  margin-bottom: 14px;
-  font-size: 2rem;
-  color: white;
-}
-
-.dados {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: 16px;
-}
-
-.dados span {
-  padding: 7px 10px;
-  border-radius: 999px;
-  background-color: rgba(143, 211, 255, 0.18);
-  border: 1px solid rgba(143, 211, 255, 0.35);
-  color: #e8f4ff;
-  font-size: 0.76rem;
-  font-weight: 700;
-}
-
-.area-texto p:last-child {
-  color: #dbeafe;
-  line-height: 1.6;
-  font-size: 0.95rem;
-}
-
-/* EFEITO: QUANDO PASSA O MOUSE NA GALERIA, TODOS FICAM APAGADOS */
+/* QUANDO PASSA O MOUSE NA GALERIA, OS OUTROS APAGAM */
 
 .lista-jogadores:hover .bloco-jogador {
-  opacity: 0.25;
-  filter: brightness(35%) blur(2px);
+  opacity: 0.35;
+  filter: brightness(35%) blur(1.5px);
 }
 
-/* EFEITO: O JOGADOR SELECIONADO FICA EM DESTAQUE */
+/* JOGADOR SELECIONADO */
 
 .lista-jogadores .bloco-jogador:hover {
   opacity: 1;
   filter: none;
-  transform: scale(1.04);
-  z-index: 10;
+  transform: scale(1.16);
+  z-index: 100;
 }
 
 .bloco-jogador:hover .area-foto {
-  transform: scale(1.08);
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
   border-color: #8fd3ff;
+  box-shadow: 0 35px 85px rgba(0, 0, 0, 0.85);
 }
 
 .bloco-jogador:hover .area-foto img {
   transform: scale(1.12);
+  filter: brightness(70%);
 }
 
 .bloco-jogador:hover .area-texto {
   opacity: 1;
   visibility: visible;
-  transform: translateX(0);
+  transform: translateY(-50%) translateX(0);
 }
 
-.bloco-jogador.inverso:hover .area-texto {
-  transform: translateX(0);
+.bloco-jogador:nth-child(3n):hover .area-texto,
+.bloco-jogador:nth-child(4n):hover .area-texto {
+  transform: translateY(-50%) translateX(0);
+}
+
+/* TEXTOS DO RETÂNGULO */
+
+.posicao {
+  margin-bottom: 8px;
+  color: #8fd3ff;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+
+.area-texto h3 {
+  margin-bottom: 12px;
+  font-size: 1.55rem;
+  color: white;
+  line-height: 1.05;
+}
+
+.dados {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 13px;
+}
+
+.dados span {
+  padding: 6px 9px;
+  border-radius: 999px;
+  background-color: rgba(143, 211, 255, 0.2);
+  border: 1px solid rgba(143, 211, 255, 0.45);
+  color: #e8f4ff;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.area-texto p:last-child {
+  color: #dbeafe;
+  line-height: 1.45;
+  font-size: 0.86rem;
 }
 
 /* RESPONSIVIDADE */
 
 @media (max-width: 900px) {
-  .bloco-jogador,
-  .bloco-jogador.inverso {
-    justify-content: center;
-    min-height: auto;
-    flex-direction: column;
-    gap: 18px;
-  }
-
-  .area-foto {
-    width: 100%;
-    height: 330px;
-    min-width: 0;
-  }
-
-  .area-texto,
-  .bloco-jogador.inverso .area-texto {
-    position: static;
-    width: 100%;
-    max-width: none;
-    opacity: 1;
-    visibility: visible;
-    transform: none;
-  }
-
-  .lista-jogadores:hover .bloco-jogador {
-    opacity: 1;
-    filter: none;
+  .lista-jogadores {
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 30px;
+    padding: 15px;
   }
 
   .lista-jogadores .bloco-jogador:hover {
-    transform: scale(1.01);
+    transform: scale(1.08);
+  }
+
+  .area-texto,
+  .bloco-jogador:nth-child(3n) .area-texto,
+  .bloco-jogador:nth-child(4n) .area-texto {
+    top: auto;
+    left: 50%;
+    right: auto;
+    bottom: -15px;
+    width: 90%;
+    transform: translateX(-50%) translateY(20px);
+  }
+
+  .bloco-jogador:hover .area-texto,
+  .bloco-jogador:nth-child(3n):hover .area-texto,
+  .bloco-jogador:nth-child(4n):hover .area-texto {
+    transform: translateX(-50%) translateY(0);
   }
 }
 
@@ -319,22 +317,39 @@ body {
   }
 
   .titulo-galeria {
-    margin-bottom: 40px;
+    margin-bottom: 35px;
   }
 
   .lista-jogadores {
-    gap: 45px;
+    grid-template-columns: 1fr;
+    gap: 55px;
+    padding: 8px;
   }
 
-  .area-foto {
-    height: 280px;
+  .lista-jogadores:hover .bloco-jogador {
+    opacity: 1;
+    filter: none;
+  }
+
+  .lista-jogadores .bloco-jogador:hover {
+    transform: scale(1.02);
   }
 
   .area-texto {
-    padding: 20px;
+    width: 92%;
+    padding: 18px;
   }
 
   .area-texto h3 {
-    font-size: 1.6rem;
+    font-size: 1.35rem;
+  }
+
+  .dados span {
+    font-size: 0.64rem;
+    padding: 5px 7px;
+  }
+
+  .area-texto p:last-child {
+    font-size: 0.76rem;
   }
 }
