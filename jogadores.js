@@ -1,9 +1,12 @@
+const listaJogadores = document.querySelector(".lista-jogadores");
 const jogadores = document.querySelectorAll(".bloco-jogador");
 
 jogadores.forEach(function (jogador) {
   jogador.addEventListener("mouseenter", function () {
     const posicao = jogador.getBoundingClientRect();
     const larguraTela = window.innerWidth;
+
+    listaJogadores.classList.add("com-hover");
 
     jogador.classList.remove("abrir-esquerda");
     jogador.classList.remove("abrir-baixo");
@@ -16,6 +19,8 @@ jogadores.forEach(function (jogador) {
   });
 
   jogador.addEventListener("mouseleave", function () {
+    listaJogadores.classList.remove("com-hover");
+
     jogador.classList.remove("abrir-esquerda");
     jogador.classList.remove("abrir-baixo");
   });

@@ -188,16 +188,16 @@ body {
   transform: translateY(-50%) translateX(15px);
 }
 
-/* QUANDO PASSA O MOUSE NA GALERIA, OS OUTROS APAGAM */
+/* AGORA SÓ ESCURECE QUANDO O JS ADICIONA A CLASSE com-hover */
 
-.lista-jogadores:hover .bloco-jogador {
+.lista-jogadores.com-hover .bloco-jogador {
   opacity: 0.35;
   filter: brightness(35%) blur(1.5px);
 }
 
 /* JOGADOR SELECIONADO */
 
-.lista-jogadores .bloco-jogador:hover {
+.lista-jogadores.com-hover .bloco-jogador:hover {
   opacity: 1;
   filter: none;
   transform: scale(1.14);
@@ -300,12 +300,12 @@ body {
     aspect-ratio: 1 / 1;
   }
 
-  .lista-jogadores:hover .bloco-jogador {
+  .lista-jogadores.com-hover .bloco-jogador {
     opacity: 1;
     filter: none;
   }
 
-  .lista-jogadores .bloco-jogador:hover {
+  .lista-jogadores.com-hover .bloco-jogador:hover {
     transform: scale(1.02);
   }
 
