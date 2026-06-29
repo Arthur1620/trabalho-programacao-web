@@ -232,7 +232,6 @@ h4 {
 
 .topo-links a {
     color: rgba(24, 33, 82, 0.7);
-    text-decoration: none;
     font-size: 16px;
     font-weight: bold;
     transition: color 0.2s ease;
@@ -244,3 +243,4 @@ h4 {
 .topo-links a.active {
     color: #071142;
 }
+
