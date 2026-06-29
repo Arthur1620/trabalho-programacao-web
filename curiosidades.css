@@ -4,10 +4,15 @@
     flex-direction: column;
     align-items: center;
     gap: 15px;
+    width: 330px;
+    flex-grow: 0;   
+    flex-shrink: 0;
 }
 
 .imagem {
-    width: 350px;
+    width: 330px;
+    height: 330px;
+    object-fit: cover;
     z-index: 2;
     border-radius: 15px;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
@@ -15,22 +20,32 @@
 
 .texto {
     position: absolute;
-    left: 380px;
-    top: 123px;
-    width: 300px;
-    padding: 15px;
+    top: 55px;
+    left: 50%;
+    width: 330px;  
+    height: calc(100% - 55px); 
+    min-height: 330px; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 15px; 
     background: rgba(13, 23, 75, 0.95);
     color: white;
-    border-radius: 12px;
+    border-radius: 16px; 
     opacity: 0;
-    transform: translateX(-20px) scale(1);
-    transition: opacity 0.4s ease, transform 0.4s ease;
+    visibility: hidden;
+    transform: translateX(-50%) scale(0.9); 
+    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
     z-index: 9999;
-    font-size: 17px;
+    font-size: 19px;
+    line-height: 1.4;
 }
-.card:hover .texto {
+.card:hover > .texto {
     opacity: 1;
-    transform: translateX(0) scale(1.1);
+    transform: translateX(-50%) scale(1);
+    visibility: visible;
 }
 
 
@@ -79,8 +94,8 @@ h1 {
     text-shadow: 2px 8px 25px rgba(0, 0, 0, 0.9);
 }
 
+
 .timg{
-    width: 100%;
     text-align: center;
     color: #ffffff;
     font-size: 2rem;
@@ -88,21 +103,80 @@ h1 {
     text-shadow: 0 6px 12px rgba(0, 0, 0, 1);
 }
 .intro{
-    font-size: 20px;
+    font-size: 22px;
     margin: 30px auto 0px auto;
     padding: 20px;
-    background: rgba(13, 23, 75, 0.9);
+    background: rgba(13, 23, 75, 1);
     border-radius: 15px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
     color: rgb(255, 255, 255);
 }
 
-main{
+main {
     position: relative;
     z-index: 2;
     display: flex;
     flex-direction: row;
-    justify-content:flex-start;
-    gap: 120px;          
-    padding: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px 100px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;        
+}
+
+h4 {
+    margin-bottom: 5px;
+}
+
+.card.destaque {
+    width: 100%; 
+    max-width: 1100px; 
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+
+.card.destaque .imagem {
+    width: 100%;
+    height: 460px;
+    object-fit: cover;
+    object-position: center 35%;
+}
+
+.card.destaque .texto {
+    top: 54px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    width: 100%;
+    height: 460px;   
+    font-size: 21px; 
+    padding: 33px;  
+}
+
+.card.destaque:hover > .texto {
+    transform: translateX(-50%) scale(1);
+}
+
+.card.duplo {
+    width: 530px; 
+}
+
+.card.duplo .imagem {
+    width: 530px;
+    height: 320px;
+    object-fit: cover;
+}
+.card.duplo .texto {
+    top: 59px;
+    left: 50%;
+    transform: translateX(-50%) scale(0.9);
+    width: 530px;  
+    height: 320px; 
+}
+
+.card.duplo:hover > .texto {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) scale(1);
 }
