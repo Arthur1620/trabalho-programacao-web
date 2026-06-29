@@ -263,3 +263,31 @@ footer h2, footer h3 {
     font-weight: 300;
     transition: transform 0.3s ease;
 }
+
+.netflix-item[open] .icone {
+    transform: rotate(45deg);
+    color: #38bdf8;
+}
+
+.netflix-conteudo {
+    padding: 0 20px 20px 20px;
+    border-top: 1px solid #020714;
+    animation: abrirSuave 0.3s ease-out;
+}
+
+.netflix-conteudo p {
+    color: #94a3b8;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.netflix-conteudo .botao-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background: linear-gradient(90deg, #38bdf8, #0369a1);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
