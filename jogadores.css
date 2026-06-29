@@ -113,42 +113,43 @@ body {
   font-size: clamp(2rem, 4vw, 3.2rem);
 }
 
-/* LISTA EM ZIGUE-ZAGUE */
+/* LISTA DOS JOGADORES */
 
 .lista-jogadores {
   max-width: 1050px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 65px;
+  gap: 75px;
 }
 
 /* BLOCO DE CADA JOGADOR */
 
 .bloco-jogador {
+  position: relative;
+  min-height: 300px;
   display: flex;
   align-items: center;
-  gap: 35px;
-  position: relative;
+  justify-content: flex-start;
   transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
 }
 
 .bloco-jogador.inverso {
-  flex-direction: row-reverse;
+  justify-content: flex-end;
 }
 
 /* FOTO QUADRADA */
 
 .area-foto {
-  width: 260px;
-  height: 260px;
-  min-width: 260px;
+  width: 280px;
+  height: 280px;
+  min-width: 280px;
   border-radius: 24px;
   overflow: hidden;
   background-color: #111a58;
   box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
   border: 1px solid rgba(143, 211, 255, 0.35);
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border 0.35s ease;
 }
 
 .area-foto img {
@@ -159,18 +160,34 @@ body {
   transition: transform 0.45s ease, filter 0.35s ease;
 }
 
-/* TEXTO DO LADO */
+/* CARD DE TEXTO ESCONDIDO */
 
 .area-texto {
-  flex: 1;
-  max-width: 560px;
+  position: absolute;
+  left: 315px;
+  width: 560px;
+  max-width: calc(100% - 330px);
   padding: 26px;
   border-radius: 24px;
-  background-color: rgba(17, 26, 88, 0.78);
-  border: 1px solid rgba(143, 211, 255, 0.25);
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.25);
-  transition: background-color 0.35s ease, border 0.35s ease, transform 0.35s ease;
+  background-color: rgba(17, 26, 88, 0.96);
+  border: 1px solid rgba(143, 211, 255, 0.45);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-25px);
+  transition: opacity 0.35s ease, visibility 0.35s ease, transform 0.35s ease;
 }
+
+/* QUANDO O BLOCO É INVERTIDO, O TEXTO APARECE DO OUTRO LADO */
+
+.bloco-jogador.inverso .area-texto {
+  left: auto;
+  right: 315px;
+  transform: translateX(25px);
+}
+
+/* TEXTOS DO CARD */
 
 .posicao {
   margin-bottom: 8px;
@@ -210,11 +227,11 @@ body {
   font-size: 0.95rem;
 }
 
-/* EFEITO: QUANDO ENTRA NA GALERIA, TODOS FICAM MAIS APAGADOS */
+/* EFEITO: QUANDO PASSA O MOUSE NA GALERIA, TODOS FICAM APAGADOS */
 
 .lista-jogadores:hover .bloco-jogador {
-  opacity: 0.35;
-  filter: brightness(45%) blur(2px);
+  opacity: 0.25;
+  filter: brightness(35%) blur(2px);
 }
 
 /* EFEITO: O JOGADOR SELECIONADO FICA EM DESTAQUE */
@@ -222,36 +239,39 @@ body {
 .lista-jogadores .bloco-jogador:hover {
   opacity: 1;
   filter: none;
-  transform: scale(1.06);
+  transform: scale(1.04);
   z-index: 10;
 }
 
 .bloco-jogador:hover .area-foto {
+  transform: scale(1.08);
   box-shadow: 0 30px 70px rgba(0, 0, 0, 0.7);
   border-color: #8fd3ff;
 }
 
 .bloco-jogador:hover .area-foto img {
-  transform: scale(1.13);
+  transform: scale(1.12);
 }
 
 .bloco-jogador:hover .area-texto {
-  background-color: rgba(17, 26, 88, 0.96);
-  border-color: rgba(143, 211, 255, 0.75);
-  transform: translateY(-4px);
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
+.bloco-jogador.inverso:hover .area-texto {
+  transform: translateX(0);
 }
 
 /* RESPONSIVIDADE */
 
-@media (max-width: 850px) {
-  .lista-jogadores {
-    gap: 45px;
-  }
-
+@media (max-width: 900px) {
   .bloco-jogador,
   .bloco-jogador.inverso {
+    justify-content: center;
+    min-height: auto;
     flex-direction: column;
-    align-items: flex-start;
+    gap: 18px;
   }
 
   .area-foto {
@@ -260,13 +280,23 @@ body {
     min-width: 0;
   }
 
-  .area-texto {
-    max-width: none;
+  .area-texto,
+  .bloco-jogador.inverso .area-texto {
+    position: static;
     width: 100%;
+    max-width: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+  }
+
+  .lista-jogadores:hover .bloco-jogador {
+    opacity: 1;
+    filter: none;
   }
 
   .lista-jogadores .bloco-jogador:hover {
-    transform: scale(1.02);
+    transform: scale(1.01);
   }
 }
 
@@ -290,6 +320,10 @@ body {
 
   .titulo-galeria {
     margin-bottom: 40px;
+  }
+
+  .lista-jogadores {
+    gap: 45px;
   }
 
   .area-foto {
