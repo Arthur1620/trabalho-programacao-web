@@ -242,3 +242,24 @@ footer h2, footer h3 {
 .netflix-item:hover {
     background-color: #132247;
 }
+
+.netflix-item summary {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    list-style: none;
+}
+
+.netflix-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.netflix-item .icone {
+    font-size: 1.5rem;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
