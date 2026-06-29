@@ -243,3 +243,47 @@ h4 {
 .topo-links a.active {
     color: #071142;
 }
+
+footer {
+    background-color: #020714;
+    border-top: 2px solid rgba(56, 189, 248, 0.2);
+    padding: 45px 20px;
+    text-align: center;
+}
+
+footer h3 {
+    font-size: 1.3rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    letter-spacing: 1.5px;
+}
+
+.visite ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 15px;
+}
+
+.visite ul li a {
+    display: inline-block;
+    width: 320px; 
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.visite ul li a:hover {
+    background: linear-gradient(90deg, #38bdf8, #0369a1);
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
+    transform: scale(1.05); 
+}
