@@ -222,34 +222,23 @@ footer h2, footer h3 {
     padding-bottom: 8px;
 }
 
-footer ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 15px;
+.explorar {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: left;
 }
 
-footer ul li a {
-    display: inline-block;
-    width: 240px; 
-    padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+.explorar h2 {
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-footer ul li a:hover {
-    background: linear-gradient(90deg, #38bdf8, #0369a1);
-    color: #ffffff;
-    border-color: transparent;
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-    transform: scale(1.05); 
+.netflix-item {
+    background-color: #091229;
+    margin-bottom: 10px;
+    border: 1px solid rgba(56, 189, 248, 0.1);
+    border-radius: 4px;
+}
+
+.netflix-item:hover {
+    background-color: #132247;
 }
