@@ -1,5 +1,5 @@
 let ultimoScroll = 0;
-const menu = document.querySelector('.topo-site'); 
+const menu = document.querySelector('.topo-site');
 
 window.addEventListener('scroll', () => {
     const scrollAtual = window.pageYOffset;
