@@ -55,15 +55,29 @@ body {
   margin: 0 auto;
   padding: 0 40px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   position: relative;
 }
 
+.marca-site {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #ffffff;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-decoration: none;
+}
+
+.marca-site span {
+  white-space: nowrap;
+  font-size: 1rem;
+}
+
 .topo-logo {
-  position: absolute;
-  left: 40px;
-  height: 45px;
+  height: 42px;
   width: auto;
   object-fit: contain;
 }
@@ -399,10 +413,18 @@ footer h3 {
     padding: 12px 20px;
     flex-direction: column;
     gap: 10px;
+    justify-content: center;
+  }
+
+  .marca-site {
+    justify-content: center;
+  }
+
+  .marca-site span {
+    font-size: 0.9rem;
   }
 
   .topo-logo {
-    position: static;
     height: 38px;
   }
 
