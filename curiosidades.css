@@ -1,289 +1,419 @@
-.card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    width: 330px;
-    flex-grow: 0;   
-    flex-shrink: 0;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap');
+
+:root {
+  --azul-fundo: #050816;
+  --azul-profundo: #071142;
+  --azul-card: #0d174b;
+  --azul-card-2: #111a58;
+  --azul-destaque: #38bdf8;
+  --azul-destaque-2: #8fd3ff;
+  --texto-principal: #f8fafc;
+  --texto-suave: #dbeafe;
+  --borda-azul: rgba(56, 189, 248, 0.28);
+  --sombra-card: 0 18px 45px rgba(0, 0, 0, 0.45);
 }
 
-.imagem {
-    width: 330px;
-    height: 330px;
-    object-fit: cover;
-    z-index: 2;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.texto {
-    position: absolute;
-    top: 55px;
-    left: 50%;
-    width: 330px;  
-    height: calc(100% - 55px); 
-    min-height: 330px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 15px; 
-    background: rgba(13, 23, 75, 0.95);
-    color: white;
-    border-radius: 16px; 
-    opacity: 0;
-    visibility: hidden;
-    transform: translateX(-50%) scale(0.9); 
-    transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s ease;
-    z-index: 9999;
-    font-size: 19px;
-    line-height: 1.4;
-}
-.card:hover > .texto {
-    opacity: 1;
-    transform: translateX(-50%) scale(1);
-    visibility: visible;
+body {
+  padding-top: 70px;
+  overflow-x: hidden;
+  font-family: 'Montserrat', Arial, sans-serif;
+  color: var(--texto-principal);
+  background: #050816;
 }
 
-
-banner {
-    position: relative;
-    height: 400px;
-    overflow: hidden;
+a {
+  color: var(--azul-destaque);
+  text-decoration: none;
 }
+
+/* FUNDO */
 
 .fundo {
-    top: 0;
-    left: 0;
-    position: fixed;
-    background-image: url("imagens_pietro/back2.webp");
-    background-size: cover;
-    background-position: center;
-    filter: blur(4px);
-    transform: scale(1.05); 
-    z-index: -1;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    width: 100vw;
-    height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-image:
+    linear-gradient(rgba(5, 8, 22, 0.45), rgba(5, 8, 22, 0.75)),
+    url("imagens_pietro/back2.webp");
+  background-size: cover;
+  background-position: center;
+  filter: blur(4px);
+  transform: scale(1.05);
+  z-index: -1;
+  width: 100vw;
+  height: 100vh;
 }
 
-header {
-    position: relative;
-    z-index: 2; 
-    color: white;
-    padding: 40px;
-}
-h1 {
-    font-size: 4.5rem;
-    text-align: center;
-    background: linear-gradient(
-        #ffffff 10%,
-        #e5e7eb 45%,
-        #d1d5db 60%,
-        #ffffff 90%
-    );
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    letter-spacing: 3px;
-    font-weight: 900;
-    text-shadow: 2px 8px 25px rgba(0, 0, 0, 0.9);
-}
-
-
-.timg{
-    text-align: center;
-    color: #ffffff;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    text-shadow: 0 6px 12px rgba(0, 0, 0, 1);
-}
-.intro{
-    font-size: 22px;
-    margin: 30px auto 0px auto;
-    padding: 20px;
-    background: rgba(13, 23, 75, 1);
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
-    color: rgb(255, 255, 255);
-}
-
-main {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 60px 100px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 30px;        
-}
-
-h4 {
-    margin-bottom: 5px;
-}
-
-.card.destaque {
-    width: 100%; 
-    max-width: 1100px; 
-    margin-top: 20px;
-    margin-bottom: 60px;
-}
-
-.card.destaque .imagem {
-    width: 100%;
-    height: 460px;
-    object-fit: cover;
-    object-position: center 35%;
-}
-
-.card.destaque .texto {
-    top: 54px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
-    width: 100%;
-    height: 460px;   
-    font-size: 21px; 
-    padding: 33px;  
-}
-
-.card.destaque:hover > .texto {
-    transform: translateX(-50%) scale(1);
-}
-
-.card.duplo {
-    width: 530px; 
-}
-
-.card.duplo .imagem {
-    width: 530px;
-    height: 320px;
-    object-fit: cover;
-}
-.card.duplo .texto {
-    top: 59px;
-    left: 50%;
-    transform: translateX(-50%) scale(0.9);
-    width: 530px;  
-    height: 320px; 
-}
-
-.card.duplo:hover > .texto {
-    opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) scale(1);
-}
+/* MENU */
 
 .topo-site {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 70px;
-    background-color: rgb(221, 228, 230);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    z-index: 999999;                     
-    transition: transform 0.3s ease;    
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(2, 7, 20, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+  z-index: 999999;
+  transition: transform 0.3s ease;
 }
 
 .topo-site.escondido {
-    transform: translateY(-100%); 
+  transform: translateY(-100%);
 }
 
 .topo-caixa {
-    width: 100%;
-    max-width: 1400px; 
-    height: 100%;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    box-sizing: border-box;
-    position: relative; 
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
 }
 
 .topo-logo {
-    position: absolute;
-    left: 40px;
-    height: 45px;   
-    width: auto;     
-    object-fit: contain; 
-    display: block;
+  position: absolute;
+  left: 40px;
+  height: 45px;
+  width: auto;
+  object-fit: contain;
 }
 
 .topo-links {
-    display: flex;
-    flex-direction: row; 
-    list-style: none;
-    gap: 35px;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  list-style: none;
+  gap: 34px;
 }
-
 
 .topo-links a {
-    color: rgba(24, 33, 82, 0.7);
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.2s ease;
-    display: block;
+  position: relative;
+  color: rgba(248, 250, 252, 0.78);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
+.topo-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--azul-destaque), var(--azul-destaque-2));
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
 
 .topo-links a:hover,
 .topo-links a.active {
-    color: #071142;
+  color: #ffffff;
 }
 
+.topo-links a:hover::after,
+.topo-links a.active::after {
+  width: 100%;
+}
+
+/* CABEÇALHO */
+
+header {
+  position: relative;
+  z-index: 2;
+  padding: 55px 7% 35px;
+  color: white;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  text-align: center;
+  background: linear-gradient(#ffffff 10%, #e5e7eb 45%, #cbd5e1 60%, #ffffff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2.5px;
+  font-weight: 900;
+  text-shadow: 2px 8px 25px rgba(0, 0, 0, 0.85);
+}
+
+.intro {
+  max-width: 1050px;
+  margin: 30px auto 0;
+  padding: 24px;
+  background: rgba(13, 23, 75, 0.9);
+  border: 1px solid var(--borda-azul);
+  border-radius: 18px;
+  box-shadow: var(--sombra-card);
+  color: var(--texto-suave);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* CARDS */
+
+main {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 60px 90px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  width: 330px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.timg {
+  text-align: center;
+  color: #ffffff;
+  font-size: 1.7rem;
+  margin-bottom: 8px;
+  font-weight: 900;
+  text-shadow: 0 6px 12px rgba(0, 0, 0, 1);
+}
+
+.imagem {
+  width: 330px;
+  height: 330px;
+  object-fit: cover;
+  z-index: 2;
+  border-radius: 18px;
+  border: 1px solid var(--borda-azul);
+  box-shadow: var(--sombra-card);
+  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+.card:hover .imagem {
+  transform: translateY(-6px);
+  border-color: var(--azul-destaque);
+  box-shadow: 0 22px 55px rgba(56, 189, 248, 0.18);
+}
+
+.texto {
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  width: 330px;
+  min-height: 330px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  padding: 18px;
+  background: rgba(13, 23, 75, 0.96);
+  color: white;
+  border-radius: 18px;
+  border: 1px solid var(--borda-azul);
+  box-shadow: var(--sombra-card);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-50%) scale(0.9);
+  transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
+  z-index: 9999;
+  font-size: 0.95rem;
+  line-height: 1.45;
+}
+
+.texto h4 {
+  color: var(--azul-destaque-2);
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+.texto p {
+  color: var(--texto-suave);
+}
+
+.card:hover > .texto {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+  visibility: visible;
+}
+
+/* CARD DESTAQUE */
+
+.card.destaque {
+  width: 100%;
+  max-width: 1100px;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+
+.card.destaque .imagem {
+  width: 100%;
+  height: 460px;
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.card.destaque .texto {
+  top: 54px;
+  width: 100%;
+  min-height: 460px;
+  font-size: 1.08rem;
+  padding: 33px;
+}
+
+/* CARD DUPLO */
+
+.card.duplo {
+  width: 530px;
+}
+
+.card.duplo .imagem {
+  width: 530px;
+  height: 320px;
+  object-fit: cover;
+}
+
+.card.duplo .texto {
+  top: 59px;
+  width: 530px;
+  min-height: 320px;
+}
+
+/* FOOTER */
+
 footer {
-    background-color: #020714;
-    border-top: 2px solid rgba(56, 189, 248, 0.2);
-    padding: 45px 20px;
-    text-align: center;
+  background: rgba(2, 7, 20, 0.96);
+  border-top: 2px solid rgba(56, 189, 248, 0.22);
+  padding: 45px 20px;
+  text-align: center;
 }
 
 footer h3 {
-    font-size: 1.3rem;
-    color: #ffffff;
-    text-transform: uppercase;
-    margin-bottom: 25px;
-    letter-spacing: 1.5px;
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
 }
 
 .visite ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column; 
-    align-items: center;
-    gap: 15px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
 }
 
 .visite ul li a {
-    display: inline-block;
-    width: 320px; 
-    padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.03);
-    color: #ffffff;
-    font-weight: 600;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    text-align: center;
+  display: inline-block;
+  width: 320px;
+  max-width: 90vw;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  text-align: center;
 }
 
 .visite ul li a:hover {
-    background: linear-gradient(90deg, #38bdf8, #0369a1);
-    box-shadow: 0 0 20px rgba(56, 189, 248, 0.4);
-    transform: scale(1.05); 
+  background: linear-gradient(90deg, var(--azul-destaque), #0369a1);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.42);
+  transform: scale(1.04);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  .card,
+  .card.duplo,
+  .card.destaque {
+    width: 100%;
+    max-width: 540px;
+  }
+
+  .imagem,
+  .card.duplo .imagem,
+  .card.destaque .imagem {
+    width: 100%;
+    height: 330px;
+  }
+
+  .texto,
+  .card.duplo .texto,
+  .card.destaque .texto {
+    width: 100%;
+    min-height: 330px;
+  }
+}
+
+@media (max-width: 760px) {
+  body {
+    padding-top: 105px;
+  }
+
+  .topo-site {
+    height: auto;
+    min-height: 92px;
+  }
+
+  .topo-caixa {
+    padding: 12px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .topo-logo {
+    position: static;
+    height: 38px;
+  }
+
+  .topo-links {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .topo-links a {
+    font-size: 0.72rem;
+  }
+
+  header {
+    padding: 35px 6%;
+  }
+
+  .intro {
+    font-size: 0.95rem;
+  }
+
+  main {
+    padding: 22px;
+    gap: 50px;
+  }
+
+  .timg {
+    font-size: 1.35rem;
+  }
 }

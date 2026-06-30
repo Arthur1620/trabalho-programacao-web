@@ -1,4 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&display=swap');
+
+:root {
+  --azul-fundo: #050816;
+  --azul-profundo: #071142;
+  --azul-card: #0d174b;
+  --azul-card-2: #111a58;
+  --azul-destaque: #38bdf8;
+  --azul-destaque-2: #8fd3ff;
+  --texto-principal: #f8fafc;
+  --texto-suave: #dbeafe;
+  --borda-azul: rgba(56, 189, 248, 0.28);
+  --sombra-card: 0 18px 45px rgba(0, 0, 0, 0.45);
+}
 
 * {
   margin: 0;
@@ -7,42 +20,101 @@
 }
 
 body {
+  padding-top: 70px;
+  overflow-x: hidden;
   font-family: 'Montserrat', Arial, sans-serif;
-  background-color: #050816;
+  background:
+    radial-gradient(circle at top, rgba(56, 189, 248, 0.18), transparent 28%),
+    linear-gradient(180deg, #050816, #06122c 55%, #020714);
   color: white;
 }
 
+/* MENU */
 
-
-.cabecalho {
-  padding: 18px 7%;
-  background-color: #070b2b;
-  border-bottom: 1px solid rgba(143, 211, 255, 0.25);
+.topo-site {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background: rgba(2, 7, 20, 0.88);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(56, 189, 248, 0.22);
+  z-index: 999999;
+  transition: transform 0.3s ease;
 }
 
-.logo {
+.topo-site.escondido {
+  transform: translateY(-100%);
+}
+
+.topo-caixa {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+  position: relative;
 }
 
-.logo span {
-  color: #8fd3ff;
-  font-size: 1.5rem;
+.topo-logo {
+  position: absolute;
+  left: 40px;
+  height: 45px;
+  width: auto;
+  object-fit: contain;
+}
+
+.topo-links {
+  display: flex;
+  list-style: none;
+  gap: 34px;
+}
+
+.topo-links a {
+  position: relative;
+  color: rgba(248, 250, 252, 0.78);
+  font-size: 0.92rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+.topo-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--azul-destaque), var(--azul-destaque-2));
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+.topo-links a:hover,
+.topo-links a.active {
+  color: #ffffff;
+}
+
+.topo-links a:hover::after,
+.topo-links a.active::after {
+  width: 100%;
 }
 
 /* HERO */
 
 .hero {
-  min-height: 360px;
-  padding: 70px 7%;
+  min-height: 430px;
+  padding: 80px 7%;
   display: flex;
   align-items: center;
   background:
-    radial-gradient(circle at top left, rgba(143, 211, 255, 0.25), transparent 35%),
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.24), transparent 35%),
     linear-gradient(135deg, #050816, #111a58 55%, #2b0f5c);
 }
 
@@ -54,9 +126,10 @@ body {
   display: inline-block;
   margin-bottom: 18px;
   padding: 8px 14px;
-  border: 1px solid #8fd3ff;
+  border: 1px solid var(--azul-destaque-2);
   border-radius: 999px;
-  color: #8fd3ff;
+  background: rgba(56, 189, 248, 0.08);
+  color: var(--azul-destaque-2);
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 2px;
@@ -67,11 +140,18 @@ body {
   margin-bottom: 18px;
   font-size: clamp(2.8rem, 6vw, 5rem);
   line-height: 1;
+  background: linear-gradient(#ffffff 10%, #e5e7eb 45%, #cbd5e1 60%, #ffffff 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2.5px;
+  font-weight: 900;
+  text-shadow: 2px 8px 25px rgba(0, 0, 0, 0.85);
 }
 
 .hero p {
   max-width: 680px;
-  color: #d9e6ff;
+  color: var(--texto-suave);
   font-size: 1rem;
   line-height: 1.6;
 }
@@ -79,29 +159,34 @@ body {
 /* INTRODUÇÃO */
 
 .intro {
-  padding: 45px 7%;
-  background-color: white;
-  color: #111a58;
+  max-width: 1050px;
+  margin: 55px auto 0;
+  padding: 35px 7%;
+  background: rgba(13, 23, 75, 0.88);
+  border: 1px solid var(--borda-azul);
+  border-radius: 18px;
+  box-shadow: var(--sombra-card);
+  color: var(--texto-principal);
 }
 
 .intro h2 {
   margin-bottom: 12px;
+  color: #ffffff;
   font-size: 2rem;
+  font-weight: 900;
+  text-transform: uppercase;
 }
 
 .intro p {
   max-width: 850px;
-  color: #333;
+  color: var(--texto-suave);
   line-height: 1.6;
 }
 
 /* GALERIA */
 
 .galeria-jogadores {
-  padding: 60px 7% 90px;
-  background:
-    radial-gradient(circle at top right, rgba(143, 211, 255, 0.15), transparent 30%),
-    linear-gradient(180deg, #050816, #0b102f 50%, #050816);
+  padding: 70px 7% 100px;
   overflow: hidden;
 }
 
@@ -112,9 +197,9 @@ body {
 
 .titulo-galeria h2 {
   font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  text-transform: uppercase;
 }
-
-/* GRADE DAS FOTOS */
 
 .lista-jogadores {
   max-width: 1120px;
@@ -126,27 +211,23 @@ body {
   overflow: visible;
 }
 
-/* BLOCO DO JOGADOR */
-
 .bloco-jogador {
   position: relative;
   aspect-ratio: 1 / 1;
   border-radius: 24px;
   cursor: pointer;
-  background-color: #111a58;
+  background-color: var(--azul-card-2);
   transition: transform 0.35s ease, filter 0.35s ease, opacity 0.35s ease;
   z-index: 1;
 }
-
-/* FOTO */
 
 .area-foto {
   width: 100%;
   height: 100%;
   border-radius: 24px;
   overflow: hidden;
-  border: 1px solid rgba(143, 211, 255, 0.35);
-  box-shadow: 0 18px 38px rgba(0, 0, 0, 0.45);
+  border: 1px solid var(--borda-azul);
+  box-shadow: var(--sombra-card);
 }
 
 .area-foto img {
@@ -157,7 +238,7 @@ body {
   transition: transform 0.45s ease, filter 0.35s ease;
 }
 
-/* RETÂNGULO DE INFORMAÇÕES */
+/* PAINEL DE INFORMAÇÕES */
 
 .area-texto {
   position: absolute;
@@ -166,21 +247,16 @@ body {
   width: 330px;
   padding: 22px;
   border-radius: 20px;
-
-  background-color: rgba(17, 26, 88, 0.98);
+  background: rgba(13, 23, 75, 0.98);
   border: 1px solid rgba(143, 211, 255, 0.55);
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65);
-
   opacity: 0;
   visibility: hidden;
   transform: translateY(-50%) translateX(-15px);
   transition: opacity 0.35s ease, transform 0.35s ease, visibility 0.35s ease;
-
   z-index: 50;
   pointer-events: none;
 }
-
-/* QUANDO O JAVASCRIPT DETECTA FALTA DE ESPAÇO NA DIREITA */
 
 .bloco-jogador.abrir-esquerda .area-texto {
   left: auto;
@@ -188,14 +264,10 @@ body {
   transform: translateY(-50%) translateX(15px);
 }
 
-/* AGORA SÓ ESCURECE QUANDO O JS ADICIONA A CLASSE com-hover */
-
 .lista-jogadores.com-hover .bloco-jogador {
   opacity: 0.35;
   filter: brightness(35%) blur(1.5px);
 }
-
-/* JOGADOR SELECIONADO */
 
 .lista-jogadores.com-hover .bloco-jogador:hover {
   opacity: 1;
@@ -205,7 +277,7 @@ body {
 }
 
 .bloco-jogador:hover .area-foto {
-  border-color: #8fd3ff;
+  border-color: var(--azul-destaque);
   box-shadow: 0 35px 85px rgba(0, 0, 0, 0.85);
 }
 
@@ -224,11 +296,9 @@ body {
   transform: translateY(-50%) translateX(0);
 }
 
-/* TEXTOS DO RETÂNGULO */
-
 .posicao {
   margin-bottom: 8px;
-  color: #8fd3ff;
+  color: var(--azul-destaque-2);
   font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 1.4px;
@@ -237,8 +307,8 @@ body {
 
 .area-texto h3 {
   margin-bottom: 12px;
-  font-size: 1.55rem;
   color: white;
+  font-size: 1.55rem;
   line-height: 1.05;
 }
 
@@ -260,17 +330,95 @@ body {
 }
 
 .area-texto p:last-child {
-  color: #dbeafe;
+  color: var(--texto-suave);
   line-height: 1.45;
   font-size: 0.86rem;
 }
 
-/* CELULAR E TELAS MENORES */
+/* FOOTER */
 
-@media (max-width: 700px) {
+footer {
+  background: rgba(2, 7, 20, 0.96);
+  border-top: 2px solid rgba(56, 189, 248, 0.22);
+  padding: 45px 20px;
+  text-align: center;
+}
+
+footer h3 {
+  margin-bottom: 25px;
+  color: #ffffff;
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.visite ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.visite ul li a {
+  display: inline-block;
+  width: 320px;
+  max-width: 90vw;
+  padding: 12px 20px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-radius: 30px;
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  text-align: center;
+  text-decoration: none;
+}
+
+.visite ul li a:hover {
+  background: linear-gradient(90deg, var(--azul-destaque), #0369a1);
+  box-shadow: 0 0 22px rgba(56, 189, 248, 0.42);
+  transform: scale(1.04);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 760px) {
+  body {
+    padding-top: 105px;
+  }
+
+  .topo-site {
+    height: auto;
+    min-height: 92px;
+  }
+
+  .topo-caixa {
+    padding: 12px 20px;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .topo-logo {
+    position: static;
+    height: 38px;
+  }
+
+  .topo-links {
+    gap: 14px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .topo-links a {
+    font-size: 0.72rem;
+  }
+
   .hero {
-    min-height: 320px;
-    padding: 50px 6%;
+    min-height: 340px;
+    padding: 55px 6%;
   }
 
   .hero h1 {
@@ -278,7 +426,12 @@ body {
   }
 
   .intro {
-    padding: 35px 6%;
+    margin: 35px 6% 0;
+    padding: 26px;
+  }
+
+  .intro h2 {
+    font-size: 1.45rem;
   }
 
   .galeria-jogadores {
@@ -294,10 +447,6 @@ body {
     grid-template-columns: 1fr;
     gap: 85px;
     padding: 8px;
-  }
-
-  .bloco-jogador {
-    aspect-ratio: 1 / 1;
   }
 
   .lista-jogadores.com-hover .bloco-jogador {
